@@ -40,7 +40,11 @@
   --nav-dropdown-color: #c8c6e3; /* Used for navigation links of the dropdown items in the navigation menu. */
   --nav-dropdown-hover-color: #ffffff; /* Similar to --nav-hover-color, this color is applied to dropdown navigation links when they are hovered over. */
 }
-
+ .custom-title {
+    font-family: 'Courier New', monospace;
+    font-style: italic;
+    font-weight: bold;
+  }
 /* Color Presets - These classes override global colors when applied to any section or element, providing reuse of the sam color scheme. */
 
 .light-background {
