@@ -157,7 +157,7 @@
   if (!form) return;
 
   // ← عدّلي ده لمسار الـ API الحقيقي بتاعك
-  const API_URL = 'https://alhendalcompany-001-site1.stempurl.com/api/ContactUs';
+  const API_URL = 'https://alhendalcompany-001-site1.stempurl.com/api/ContactUs/PostForDal';
 
   const loadingEl = form.querySelector('.loading');
   const errorEl   = form.querySelector('.error-message');
