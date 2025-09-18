@@ -1201,23 +1201,26 @@
                 <p>Tell us about your idea and we’ll help you turn it into a working product.</p>
               </div>
 
-              <form action="forms/contact.php" method="post" class="php-email-form">
+              <!-- مفيش action, وفيه id -->
+              <form id="contactForm" class="php-email-form" novalidate>
                 <div class="row">
                   <div class="col-md-6 mb-3">
-                    <input type="text" name="name" class="form-control" placeholder="Your Name" required="">
+                    <input type="text" name="fullname" class="form-control" placeholder="Your Name" required
+                      maxlength="100">
                   </div>
                   <div class="col-md-6 mb-3">
-                    <input type="email" class="form-control" name="email" placeholder="Email Address" required="">
+                    <input type="email" name="email" class="form-control" placeholder="Email Address" required>
                   </div>
                 </div>
 
+                <!-- اختياري: هنجمعه داخل الرسالة -->
                 <div class="mb-3">
-                  <input type="text" class="form-control" name="subject" placeholder="What's this about?" required="">
+                  <input type="text" name="subject" class="form-control" placeholder="What's this about?">
                 </div>
 
                 <div class="mb-4">
-                  <textarea class="form-control" name="message" rows="4"
-                    placeholder="Tell us more about your project..." required=""></textarea>
+                  <textarea name="message" class="form-control" rows="4"
+                    placeholder="Tell us more about your project..." required maxlength="1000"></textarea>
                 </div>
 
                 <div class="my-3">
@@ -1233,6 +1236,8 @@
               </form>
             </div>
           </div>
+
+
 
           <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
             <div class="contact-info-area">
@@ -1281,7 +1286,7 @@
         </div>
       </div>
     </section>
-  
+
 
 
 

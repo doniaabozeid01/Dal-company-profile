@@ -149,6 +149,68 @@
 
   });
 
+
+
+
+(function () {
+  const form = document.querySelector('#contactForm');
+  if (!form) return;
+
+  // ← عدّلي ده لمسار الـ API الحقيقي بتاعك
+  const API_URL = 'https://alhendalcompany-001-site1.stempurl.com/api/ContactUs';
+
+  const loadingEl = form.querySelector('.loading');
+  const errorEl   = form.querySelector('.error-message');
+  const sentEl    = form.querySelector('.sent-message');
+
+  function show(el){ el && el.classList.add('d-block'); }
+  function hide(el){ el && el.classList.remove('d-block'); }
+  function resetUI(){ hide(loadingEl); hide(errorEl); hide(sentEl); }
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    resetUI();
+
+    const fullname = form.fullname.value.trim();
+    const email    = form.email.value.trim();
+    const subject  = (form.subject?.value || '').trim();
+    const message  = form.message.value.trim();
+
+    if (!fullname || !email || !message) {
+      errorEl.textContent = 'Please fill in all required fields.'; show(errorEl); return;
+    }
+
+    // لو عايزة تسيبي subject في الواجهة: نضيفه لأول الرسالة (اختياري)
+    const finalMessage = subject ? `Subject: ${subject}\n\n${message}` : message;
+
+    show(loadingEl);
+    try {
+      const res = await fetch(API_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ fullname, email, message: finalMessage })
+      });
+
+      hide(loadingEl);
+      if (res.ok) {
+        show(sentEl);
+        form.reset();
+      } else {
+        const t = await res.text();
+        errorEl.textContent = t || ('Request failed: ' + res.status);
+        show(errorEl);
+      }
+    } catch (err) {
+      hide(loadingEl);
+      errorEl.textContent = err.message || 'Network error';
+      show(errorEl);
+    }
+  });
+})();
+
+
+
+
   /**
    * Init swiper sliders
    */
