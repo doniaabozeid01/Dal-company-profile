@@ -1,5 +1,5 @@
 <?php
-  $receiving_email_address = 'alhndal212@gmail.com';
+  $receiving_email_address = 'alhendal01@gmail.com';
 
   if( file_exists($php_email_form = '../assets/vendor/php-email-form/php-email-form.php' )) {
     include( $php_email_form );
@@ -18,7 +18,7 @@
   // SMTP إعدادات
   $contact->smtp = array(
     'host' => 'smtp.gmail.com',
-    'username' => 'alhndal212@gmail.com',
+    'username' => 'alhendal01@gmail.com',
     'password' => 'fefp iibu uhbm vllr',
     'port' => '587'
   );
